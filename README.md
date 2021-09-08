@@ -12,10 +12,8 @@ Only two endpoints: GET all the messages in the room, and POST a new message to 
 Only the message content is taken from the POST input, the ID, timestamp and user are injected server side
 
 ## How to Use
-### Build
-mvn clean package
-### Run
-java -jar target/chat-0.0.1-SNAPSHOT.jar
+### Build & Run
+mvn spring-boot:run
 ### Test
 import SimpleChatServer.postman_collection.json
 
