@@ -1,0 +1,61 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: "Yannick Chat"
+host: "localhost:8080"
+basePath: ""
+schemes:
+- "http"
+paths:
+  /messages:
+    post:
+      summary: "Send message"
+      description: ""
+      operationId: "sendMessage"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Message"
+        required: true
+        schema:
+          $ref: "#/definitions/Message"
+      responses:
+        "200":
+          description: "message sent"
+          schema:
+            $ref: "#/definitions/Message"
+        "405":
+          description: "Invalid input"
+    get:
+      summary: "Get messages"
+      description: ""
+      operationId: "getMessages"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Message"
+    
+definitions:
+  Message:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      sender:
+        type: "string"
+      content:
+        type: "string"
+      time:
+        type: "string"
+        format: "date-time"

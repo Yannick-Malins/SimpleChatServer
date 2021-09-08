@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "2eda8eca-4c2d-44f1-afac-000f598b9c9c",
+		"name": "SimpleChatServer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "Send message",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"adipisicing do aliquip ad eu\",\n    \"sender\": \"a\",\n    \"content\": \"courgette\",\n    \"time\": \"1985-02-12T06:55:28.174Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Invalid input",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"adipisicing do aliquip ad eu\",\n    \"sender\": \"do ut in et\",\n    \"content\": \"Excepteur nisi\",\n    \"time\": \"1985-02-12T06:55:28.174Z\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"messages"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/messages",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"est sit aute sed reprehenderit\",\n  \"sender\": \"Duis reprehenderit\",\n  \"content\": \"Excepteur culpa aliqua\",\n  \"time\": \"1950-09-03T20:12:57.126Z\"\n },\n {\n  \"id\": \"veniam laboris mollit\",\n  \"sender\": \"laborum et culpa\",\n  \"content\": \"dolor cillum enim\",\n  \"time\": \"2000-03-10T19:53:43.564Z\"\n }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "password",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "a",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
