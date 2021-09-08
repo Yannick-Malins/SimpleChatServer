@@ -1,0 +1,2 @@
+# SimpleChatServer
+for UI prototypes
