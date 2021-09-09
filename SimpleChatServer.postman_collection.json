@@ -1,31 +1,61 @@
 {
 	"info": {
-		"_postman_id": "2eda8eca-4c2d-44f1-afac-000f598b9c9c",
-		"name": "SimpleChatServer",
+		"_postman_id": "36175977-54a0-4f65-bff0-0416f4dd6223",
+		"name": "Yannick Chat",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "messages",
+			"name": "rooms",
 			"item": [
 				{
-					"name": "Send message",
+					"name": "Get rooms you are in",
 					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "admin",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "password",
-									"type": "string"
-								}
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/rooms",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"rooms"
 							]
-						},
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/rooms",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"rooms"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"name\": \"consequat aliqua labore Duis\",\n  \"participants\": [\n   \"minim ipsum\",\n   \"ipsum\"\n  ]\n },\n {\n  \"name\": \"culpa ex Duis id\",\n  \"participants\": [\n   \"consectetur enim ipsum occaecat\",\n   \"sit proident\"\n  ]\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create new room",
+					"request": {
 						"method": "POST",
 						"header": [
 							{
@@ -35,7 +65,168 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"adipisicing do aliquip ad eu\",\n    \"sender\": \"a\",\n    \"content\": \"courgette\",\n    \"time\": \"1985-02-12T06:55:28.174Z\"\n}"
+							"raw": "{\n    \"name\": \"eiusmod sed qui\",\n    \"participants\": [\n        \"sed laborum Lorem\",\n        \"Duis dolore cillum sit\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/rooms",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "room created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"eiusmod sed qui\",\n    \"participants\": [\n        \"sed laborum Lorem\",\n        \"Duis dolore cillum sit\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/rooms",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"rooms"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"name\": \"eiusmod sed qui\",\n \"participants\": [\n  \"sed laborum Lorem\",\n  \"Duis dolore cillum sit\"\n ]\n}"
+						},
+						{
+							"name": "Invalid input",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"eiusmod sed qui\",\n    \"participants\": [\n        \"sed laborum Lorem\",\n        \"Duis dolore cillum sit\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/rooms",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"rooms"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "Get messages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/messages?room=elit dolor&fromTime=1949-10-26T00:23:45.368Z",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"messages"
+							],
+							"query": [
+								{
+									"key": "room",
+									"value": "elit dolor",
+									"description": "(Required) Room"
+								},
+								{
+									"key": "fromTime",
+									"value": "1949-10-26T00:23:45.368Z",
+									"description": "Optional earliest time from which to pull messages"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/messages?room=elit dolor&fromTime=1949-10-26T00:23:45.368Z",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"messages"
+									],
+									"query": [
+										{
+											"key": "room",
+											"value": "elit dolor"
+										},
+										{
+											"key": "fromTime",
+											"value": "1949-10-26T00:23:45.368Z"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"qui ipsum laborum ea\",\n  \"sender\": \"esse ea ullamco culpa consequat\",\n  \"content\": \"in\",\n  \"time\": \"1950-03-12T22:03:25.579Z\",\n  \"room\": \"consequat est id\"\n },\n {\n  \"id\": \"tempor Ut\",\n  \"sender\": \"e\",\n  \"content\": \"esse commodo nis\",\n  \"time\": \"1951-12-10T06:57:08.776Z\",\n  \"room\": \"elit id deserunt esse\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Send message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"deserunt dolor ad dolor\",\n    \"sender\": \"Ut ullamco incididunt\",\n    \"content\": \"id sed dolor\",\n    \"time\": \"2003-08-16T08:58:53.702Z\",\n    \"room\": \"cillum consequat E\"\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/messages",
@@ -49,13 +240,44 @@
 					},
 					"response": [
 						{
+							"name": "message sent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"deserunt dolor ad dolor\",\n    \"sender\": \"Ut ullamco incididunt\",\n    \"content\": \"id sed dolor\",\n    \"time\": \"2003-08-16T08:58:53.702Z\",\n    \"room\": \"cillum consequat E\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/messages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": \"deserunt dolor ad dolor\",\n \"sender\": \"Ut ullamco incididunt\",\n \"content\": \"id sed dolor\",\n \"time\": \"2003-08-16T08:58:53.702Z\",\n \"room\": \"cillum consequat E\"\n}"
+						},
+						{
 							"name": "Invalid input",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": \"adipisicing do aliquip ad eu\",\n    \"sender\": \"do ut in et\",\n    \"content\": \"Excepteur nisi\",\n    \"time\": \"1985-02-12T06:55:28.174Z\"\n}"
+									"raw": "{\n    \"id\": \"deserunt dolor ad dolor\",\n    \"sender\": \"Ut ullamco incididunt\",\n    \"content\": \"id sed dolor\",\n    \"time\": \"2003-08-16T08:58:53.702Z\",\n    \"room\": \"cillum consequat E\"\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/messages",
@@ -78,51 +300,6 @@
 							],
 							"cookie": [],
 							"body": ""
-						}
-					]
-				},
-				{
-					"name": "Get messages",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/messages",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"messages"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "successful operation",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/messages",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"messages"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "[\n {\n  \"id\": \"est sit aute sed reprehenderit\",\n  \"sender\": \"Duis reprehenderit\",\n  \"content\": \"Excepteur culpa aliqua\",\n  \"time\": \"1950-09-03T20:12:57.126Z\"\n },\n {\n  \"id\": \"veniam laboris mollit\",\n  \"sender\": \"laborum et culpa\",\n  \"content\": \"dolor cillum enim\",\n  \"time\": \"2000-03-10T19:53:43.564Z\"\n }\n]"
 						}
 					]
 				}

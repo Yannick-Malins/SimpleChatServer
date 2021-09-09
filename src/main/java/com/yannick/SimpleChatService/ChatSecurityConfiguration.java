@@ -21,7 +21,9 @@ public class ChatSecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("a").password(encoder.encode("password")).roles("USER")
                 .and()
-                .withUser("b").password(encoder.encode("password")).roles("USER");
+                .withUser("b").password(encoder.encode("password")).roles("USER")
+                .and()
+                .withUser("c").password(encoder.encode("password")).roles("USER");
     }
 
     @Override

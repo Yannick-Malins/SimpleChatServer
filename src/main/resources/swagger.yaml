@@ -7,7 +7,73 @@ basePath: ""
 schemes:
 - "http"
 paths:
+  /rooms:
+    get:
+      summary: "Get rooms you are in"
+      description: ""
+      operationId: "getRooms"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Room"
+    post:
+      summary: "Create new room"
+      description: ""
+      operationId: "createRoom"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "room"
+          description: "Room"
+          required: true
+          schema:
+            $ref: "#/definitions/Room"
+      responses:
+        "200":
+          description: "room created"
+          schema:
+            $ref: "#/definitions/Room"
+        "405":
+          description: "Invalid input"
+
   /messages:
+    get:
+      summary: "Get messages"
+      description: ""
+      operationId: "getMessages"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "room"
+          in: "query"
+          description: "Room"
+          required: true
+          type: "string"
+        - name: "fromTime"
+          in: "query"
+          description: "Optional earliest time from which to pull messages"
+          required: false
+          type: "string"
+          format: "date-time"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Message"
     post:
       summary: "Send message"
       description: ""
@@ -18,8 +84,8 @@ paths:
       - "application/json"
       parameters:
       - in: "body"
-        name: "body"
-        description: "Message"
+        name: "message"
+        description: "Message (only input contents and room)"
         required: true
         schema:
           $ref: "#/definitions/Message"
@@ -30,21 +96,6 @@ paths:
             $ref: "#/definitions/Message"
         "405":
           description: "Invalid input"
-    get:
-      summary: "Get messages"
-      description: ""
-      operationId: "getMessages"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      responses:
-        "200":
-          description: "successful operation"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Message"
     
 definitions:
   Message:
@@ -59,3 +110,14 @@ definitions:
       time:
         type: "string"
         format: "date-time"
+      room:
+        type: "string"
+  Room:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      participants:
+        type: "array"
+        items:
+          type: "string"
