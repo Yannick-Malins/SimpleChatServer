@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "36175977-54a0-4f65-bff0-0416f4dd6223",
+		"_postman_id": "3c78dfd5-9277-4909-b3f7-b78848f69548",
 		"name": "Yannick Chat",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -49,7 +49,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n {\n  \"name\": \"consequat aliqua labore Duis\",\n  \"participants\": [\n   \"minim ipsum\",\n   \"ipsum\"\n  ]\n },\n {\n  \"name\": \"culpa ex Duis id\",\n  \"participants\": [\n   \"consectetur enim ipsum occaecat\",\n   \"sit proident\"\n  ]\n }\n]"
+							"body": "[\n {\n  \"id\": \"consequat eu ex Duis incididunt\",\n  \"name\": \"labore nulla veniam\",\n  \"participants\": [\n   \"Duis veniam sed anim\",\n   \"Duis cupid\"\n  ]\n },\n {\n  \"id\": \"nos\",\n  \"name\": \"officia dolore in\",\n  \"participants\": [\n   \"dolor eiusmod\",\n   \"Excepteur elit\"\n  ]\n }\n]"
 						}
 					]
 				},
@@ -65,7 +65,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"eiusmod sed qui\",\n    \"participants\": [\n        \"sed laborum Lorem\",\n        \"Duis dolore cillum sit\"\n    ]\n}"
+							"raw": "{\n    \"id\": \"laborum incididunt aliquip sit exercitation\",\n    \"name\": \"aliquip irure\",\n    \"participants\": [\n        \"sint officia dolor\",\n        \"dolore q\"\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/rooms",
@@ -85,7 +85,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"eiusmod sed qui\",\n    \"participants\": [\n        \"sed laborum Lorem\",\n        \"Duis dolore cillum sit\"\n    ]\n}"
+									"raw": "{\n    \"id\": \"laborum incididunt aliquip sit exercitation\",\n    \"name\": \"aliquip irure\",\n    \"participants\": [\n        \"sint officia dolor\",\n        \"dolore q\"\n    ]\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/rooms",
@@ -107,7 +107,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n \"name\": \"eiusmod sed qui\",\n \"participants\": [\n  \"sed laborum Lorem\",\n  \"Duis dolore cillum sit\"\n ]\n}"
+							"body": "{\n \"id\": \"laborum incididunt aliquip sit exercitation\",\n \"name\": \"aliquip irure\",\n \"participants\": [\n  \"sint officia dolor\",\n  \"dolore q\"\n ]\n}"
 						},
 						{
 							"name": "Invalid input",
@@ -116,7 +116,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"eiusmod sed qui\",\n    \"participants\": [\n        \"sed laborum Lorem\",\n        \"Duis dolore cillum sit\"\n    ]\n}"
+									"raw": "{\n    \"id\": \"laborum incididunt aliquip sit exercitation\",\n    \"name\": \"aliquip irure\",\n    \"participants\": [\n        \"sint officia dolor\",\n        \"dolore q\"\n    ]\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/rooms",
@@ -153,7 +153,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/messages?room=elit dolor&fromTime=1949-10-26T00:23:45.368Z",
+							"raw": "{{baseUrl}}/messages?roomId=cillum laborum non ex&fromTime=2018-02-14T06:58:55.871Z",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -162,13 +162,13 @@
 							],
 							"query": [
 								{
-									"key": "room",
-									"value": "elit dolor",
-									"description": "(Required) Room"
+									"key": "roomId",
+									"value": "cillum laborum non ex",
+									"description": "(Required) Room ID"
 								},
 								{
 									"key": "fromTime",
-									"value": "1949-10-26T00:23:45.368Z",
+									"value": "2018-02-14T06:58:55.871Z",
 									"description": "Optional earliest time from which to pull messages"
 								}
 							]
@@ -181,7 +181,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/messages?room=elit dolor&fromTime=1949-10-26T00:23:45.368Z",
+									"raw": "{{baseUrl}}/messages?roomId=cillum laborum non ex&fromTime=2018-02-14T06:58:55.871Z",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -190,12 +190,12 @@
 									],
 									"query": [
 										{
-											"key": "room",
-											"value": "elit dolor"
+											"key": "roomId",
+											"value": "cillum laborum non ex"
 										},
 										{
 											"key": "fromTime",
-											"value": "1949-10-26T00:23:45.368Z"
+											"value": "2018-02-14T06:58:55.871Z"
 										}
 									]
 								}
@@ -210,7 +210,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n {\n  \"id\": \"qui ipsum laborum ea\",\n  \"sender\": \"esse ea ullamco culpa consequat\",\n  \"content\": \"in\",\n  \"time\": \"1950-03-12T22:03:25.579Z\",\n  \"room\": \"consequat est id\"\n },\n {\n  \"id\": \"tempor Ut\",\n  \"sender\": \"e\",\n  \"content\": \"esse commodo nis\",\n  \"time\": \"1951-12-10T06:57:08.776Z\",\n  \"room\": \"elit id deserunt esse\"\n }\n]"
+							"body": "[\n {\n  \"id\": \"dolor ex anim velit\",\n  \"senderId\": \"magna aute reprehenderit\",\n  \"content\": \"in officia cillum esse\",\n  \"time\": \"1963-07-30T13:49:09.527Z\",\n  \"roomId\": \"\"\n },\n {\n  \"id\": \"commodo consequat ullamco \",\n  \"senderId\": \"aliqua\",\n  \"content\": \"exercitation aliquip dolore eiusmod culpa\",\n  \"time\": \"1946-08-16T16:30:55.957Z\",\n  \"roomId\": \"ea\"\n }\n]"
 						}
 					]
 				},
@@ -226,7 +226,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"deserunt dolor ad dolor\",\n    \"sender\": \"Ut ullamco incididunt\",\n    \"content\": \"id sed dolor\",\n    \"time\": \"2003-08-16T08:58:53.702Z\",\n    \"room\": \"cillum consequat E\"\n}"
+							"raw": "{\n    \"id\": \"occaecat\",\n    \"senderId\": \"nostrud tempor quis occaecat\",\n    \"content\": \"amet voluptate consequat\",\n    \"time\": \"1995-12-15T23:55:58.717Z\",\n    \"roomId\": \"enim\"\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/messages",
@@ -246,7 +246,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": \"deserunt dolor ad dolor\",\n    \"sender\": \"Ut ullamco incididunt\",\n    \"content\": \"id sed dolor\",\n    \"time\": \"2003-08-16T08:58:53.702Z\",\n    \"room\": \"cillum consequat E\"\n}"
+									"raw": "{\n    \"id\": \"occaecat\",\n    \"senderId\": \"nostrud tempor quis occaecat\",\n    \"content\": \"amet voluptate consequat\",\n    \"time\": \"1995-12-15T23:55:58.717Z\",\n    \"roomId\": \"enim\"\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/messages",
@@ -268,7 +268,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n \"id\": \"deserunt dolor ad dolor\",\n \"sender\": \"Ut ullamco incididunt\",\n \"content\": \"id sed dolor\",\n \"time\": \"2003-08-16T08:58:53.702Z\",\n \"room\": \"cillum consequat E\"\n}"
+							"body": "{\n \"id\": \"occaecat\",\n \"senderId\": \"nostrud tempor quis occaecat\",\n \"content\": \"amet voluptate consequat\",\n \"time\": \"1995-12-15T23:55:58.717Z\",\n \"roomId\": \"enim\"\n}"
 						},
 						{
 							"name": "Invalid input",
@@ -277,7 +277,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"id\": \"deserunt dolor ad dolor\",\n    \"sender\": \"Ut ullamco incididunt\",\n    \"content\": \"id sed dolor\",\n    \"time\": \"2003-08-16T08:58:53.702Z\",\n    \"room\": \"cillum consequat E\"\n}"
+									"raw": "{\n    \"id\": \"occaecat\",\n    \"senderId\": \"nostrud tempor quis occaecat\",\n    \"content\": \"amet voluptate consequat\",\n    \"time\": \"1995-12-15T23:55:58.717Z\",\n    \"roomId\": \"enim\"\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/messages",
@@ -302,6 +302,110 @@
 							"body": ""
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Get details of all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"id\": \"ea proident nisi\",\n  \"name\": \"magna veniam\"\n },\n {\n  \"id\": \"\",\n  \"name\": \"cupidatat culpa\"\n }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get details of a user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/user/:userId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "cillum laborum non ex",
+							"description": "(Required) User ID"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successful operation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/:userId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"id\": \"quis veniam non in officia\",\n \"name\": \"veniam\"\n}"
 				}
 			]
 		}

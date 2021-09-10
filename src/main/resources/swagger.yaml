@@ -7,6 +7,42 @@ basePath: ""
 schemes:
 - "http"
 paths:
+  /users:
+    get:
+      summary: "Get details of all users"
+      description: ""
+      operationId: "getUsers"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/User"
+  /user/{userId}:
+    get:
+      summary: "Get details of a user"
+      description: ""
+      operationId: "getUser"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "userId"
+          in: "path"
+          description: "User ID"
+          required: true
+          type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
   /rooms:
     get:
       summary: "Get rooms you are in"
@@ -33,8 +69,8 @@ paths:
         - "application/json"
       parameters:
         - in: "body"
-          name: "room"
-          description: "Room"
+          name: "roomId"
+          description: "Room ID"
           required: true
           schema:
             $ref: "#/definitions/Room"
@@ -56,9 +92,9 @@ paths:
       produces:
         - "application/json"
       parameters:
-        - name: "room"
+        - name: "roomId"
           in: "query"
-          description: "Room"
+          description: "Room ID"
           required: true
           type: "string"
         - name: "fromTime"
@@ -103,21 +139,30 @@ definitions:
     properties:
       id:
         type: "string"
-      sender:
+      senderId:
         type: "string"
       content:
         type: "string"
       time:
         type: "string"
         format: "date-time"
-      room:
+      roomId:
         type: "string"
   Room:
     type: "object"
     properties:
+      id:
+        type: "string"
       name:
         type: "string"
       participants:
         type: "array"
         items:
           type: "string"
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      name:
+        type: "string"

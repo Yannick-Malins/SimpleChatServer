@@ -7,11 +7,13 @@ Uses basic auth, three users a & b & c are hardcoded in ChatSecurityConfiguratio
 
 API is defined in src/main/resources/swagger.yaml
 
-Four endpoints:
-    Create a room
+endpoints:
+    Get users (hardcoded list of 3 users)
+    Get a specific user from ID
+    Create a room giving a name and userID
     Get all rooms you are in
-    Post a message to a room you are in (Only the message content is taken from the POST input, the ID, timestamp and user are injected server side)
-    Get all messages from a room you are in
+    Post a message to a room you are in (passing roomId and message content)
+    Get all messages from a room you are in (passing roomId)
 
 ## How to Use
 ### Build & Run
