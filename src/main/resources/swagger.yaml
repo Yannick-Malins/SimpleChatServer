@@ -81,10 +81,9 @@ paths:
             $ref: "#/definitions/Room"
         "405":
           description: "Invalid input"
-
-  /messages:
+  /rooms/{roomId}/messages:
     get:
-      summary: "Get messages"
+      summary: "Get messages from a room"
       description: ""
       operationId: "getMessages"
       consumes:
@@ -93,7 +92,7 @@ paths:
         - "application/json"
       parameters:
         - name: "roomId"
-          in: "query"
+          in: "path"
           description: "Room ID"
           required: true
           type: "string"
@@ -111,7 +110,7 @@ paths:
             items:
               $ref: "#/definitions/Message"
     post:
-      summary: "Send message"
+      summary: "Send message to a room"
       description: ""
       operationId: "sendMessage"
       consumes:
@@ -119,9 +118,14 @@ paths:
       produces:
       - "application/json"
       parameters:
+      - name: "roomId"
+        in: "path"
+        description: "Room ID"
+        required: true
+        type: "string"
       - in: "body"
         name: "message"
-        description: "Message (only input contents and room)"
+        description: "Message (only input contents)"
         required: true
         schema:
           $ref: "#/definitions/Message"
@@ -146,8 +150,6 @@ definitions:
       time:
         type: "string"
         format: "date-time"
-      roomId:
-        type: "string"
   Room:
     type: "object"
     properties:

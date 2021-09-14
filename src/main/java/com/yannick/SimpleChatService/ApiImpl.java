@@ -1,6 +1,5 @@
 package com.yannick.SimpleChatService;
 
-import com.yannick.SimpleChatService.api.MessagesApiDelegate;
 import com.yannick.SimpleChatService.api.RoomsApiDelegate;
 import com.yannick.SimpleChatService.api.UserApiDelegate;
 import com.yannick.SimpleChatService.api.UsersApiDelegate;
@@ -18,7 +17,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class ApiImpl implements MessagesApiDelegate, RoomsApiDelegate, UserApiDelegate, UsersApiDelegate {
+public class ApiImpl implements  RoomsApiDelegate, UserApiDelegate, UsersApiDelegate {
 
     Map<String, User> users;
     Map<String, Room> rooms = new HashMap<>();
@@ -79,17 +78,17 @@ public class ApiImpl implements MessagesApiDelegate, RoomsApiDelegate, UserApiDe
     }
 
     @Override
-    public ResponseEntity<Message> sendMessage(Message message) {
-        if (message.getContent() == null
-                || message.getRoomId() == null
-                || !rooms.containsKey(message.getRoomId())
-                || !rooms.get(message.getRoomId()).getParticipants().contains(myId()))
+    public ResponseEntity<Message> sendMessage(String roomId, Message message) {
+        if (roomId==null
+                || !rooms.containsKey(roomId)
+                || !rooms.get(roomId).getParticipants().contains(myId())
+                || message.getContent() == null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         message.setSenderId(myId());
         message.setId("message-" + UUID.randomUUID());
         message.setTime(OffsetDateTime.now());
         message.setContent("encrypted:" + message.getContent());
-        messagesByRoom.get(message.getRoomId()).add(message);
+        messagesByRoom.get(roomId).add(message);
         return new ResponseEntity<>(message, HttpStatus.CREATED);
     }
 

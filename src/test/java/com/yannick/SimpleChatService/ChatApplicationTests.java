@@ -1,6 +1,5 @@
 package com.yannick.SimpleChatService;
 
-import com.yannick.SimpleChatService.api.MessagesApiController;
 import com.yannick.SimpleChatService.api.RoomsApiController;
 import com.yannick.SimpleChatService.api.UserApiController;
 import com.yannick.SimpleChatService.api.UsersApiController;
@@ -24,8 +23,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class ChatApplicationTests {
 
     @Autowired
-    MessagesApiController messagesApiController;
-    @Autowired
     RoomsApiController roomsApiController;
     @Autowired
     UserApiController userApiController;
@@ -34,7 +31,6 @@ class ChatApplicationTests {
 
     @Test
     void contextLoads() {
-        assertNotNull(messagesApiController);
         assertNotNull(roomsApiController);
         assertNotNull(userApiController);
         assertNotNull(usersApiController);
@@ -76,9 +72,8 @@ class ChatApplicationTests {
         room = roomsApiController.createRoom(room).getBody();
         Message message = new Message();
         message.setContent("hello guys");
-        message.setRoomId(room.getId());
-        assertEquals(messagesApiController.sendMessage(message).getStatusCode(), HttpStatus.CREATED);
-        ResponseEntity<List<Message>> resp = messagesApiController.getMessages(room.getId(), null);
+        assertEquals(roomsApiController.sendMessage(room.getId(),message).getStatusCode(), HttpStatus.CREATED);
+        ResponseEntity<List<Message>> resp = roomsApiController.getMessages(room.getId(), null);
         assertEquals(resp.getStatusCode(), HttpStatus.OK);
         assertEquals(resp.getBody().size(), 1);
     }
